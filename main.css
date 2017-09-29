@@ -173,7 +173,7 @@ body{
     padding: 5px;
     left: 10%;
     margin-top: 15%;
-    width: 65px;
+    width: 80px;
     height: 20px;
     text-align: left;
     border: none;
@@ -182,11 +182,11 @@ body{
     display: inline-block;
 }
 .amount{
-    display: inline-block;
+    /*display: inline-block;*/
     position: absolute;
     /*padding: 5px;*/
     left: 30%;
-    margin-top: 17%;
+    margin-left: 40%;
     width: 16px;
     height: 16px;
     text-align: center;
@@ -194,7 +194,102 @@ body{
     border-radius: 100%;
     background-color: orange;
 }
-@media (max-width: 800px) {
+.badge{
+    position: fixed;
+    left: 5%;
+    background-color: #5000ff;
+    width: 80px;
+    height: 100px;
+    bottom: -70px;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+    transition:	all	600ms ease-out;
+    /*transition:	all	3s ease-out;*/
+
+    text-align: center;
+    color: white;
+    padding: 1%;
+    padding-top: 2%;
+    font-family: Tahoma;
+    /*padding-top: 10%;*/
+    text-decoration: none;
+    box-shadow: 0 3px 0 #4000bb inset;
+}
+.badge:hover{
+    background-color: #9000ff;
+    bottom: 0px;
+    transition:	all	600ms ease-out;
+    /*transition:	all	3s ease-out;*/
+
+    /*transform: rotate(1080deg);*/
+    color: black;
+    box-shadow: 0 3px 0 #8000bb inset;
+
+}
+.author{
+    text-align: center;
+    color: black;
+    padding: 1%;
+    font-family: Tahoma;
+    font-size: small;
+    padding-top: 30%;
+    /*transform: rotate(90deg);*/
+}
+[data-tooltip] {
+    /*position: relative;*/
+    z-index: 2;
+    cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 160px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+[data-tooltip]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+    /*display: none;*/
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+}
+@media (max-width: 500px) {
     .left{
         width: 97%;
         margin-left: 0;
@@ -202,5 +297,19 @@ body{
     .right{
         width: 97%;
         margin-right: 0;
+    }
+}
+@media print {
+    .badge{
+        background-color: white;
+        border: solid black;
+    }
+    .author{
+        /*Put higher author div*/
+        transform: translateY(-30px);
+    }
+    .onprint{
+        /*Remove "Buy List" div*/
+        display: none;
     }
 }
